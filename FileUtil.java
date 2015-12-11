@@ -20,14 +20,14 @@ public class FileUtil {
     /**
      * //storage/emulated/0/Android/data/com.raventech.projectflow/files/[Pictures]
      *
-     *  The file where saving the public stuff for every app visibility but may not understand;
+     *  The file where saving the own public local data while visibility but may not to understand for every app ;
      * */
     public static File getPublicDataDirectory(Context context, String type){
         return context.getExternalFilesDir(type);
     }
 
     /**
-     * The file where saving the public stuff for every app visibility and understand;
+     * The file where saving the own public local data while visibility and understand for every app ;
      * */
     public static File getPublicDirectory(String fileName) throws IOException {
         String path = Environment.getExternalStorageDirectory() + "/" + FLOW_PIC_FILE_DIRECOTRY;
