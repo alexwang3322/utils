@@ -1,8 +1,9 @@
-package com.raventech.projectflow.utils;
+package alex.demo.common.utils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
-import android.provider.MediaStore;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.io.IOException;
 /**
  * Created by alex on 15/12/11.
  */
-public class FileDirectoryUtil {
+public class FileUtil {
 
     private final static String FLOW_FILE_DIRECOTRY = "flow/";
 
@@ -36,5 +37,15 @@ public class FileDirectoryUtil {
         }
         File f = new File(file , fileName);
         return f;
+    }
+
+    /**
+     *  To create a image file in the local , also send a {@link Intent#ACTION_MEDIA_SCANNER_SCAN_FILE} broadcast
+     * */
+    public static File getAnEmptyImageFile(Context context, String fileName) throws IOException{
+        File file = getPublicDirectory(fileName);
+        // need to send this broadcast to make visible in system album;
+        context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
+        return file;
     }
 }
