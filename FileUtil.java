@@ -27,6 +27,8 @@ public class FileUtil {
     }
 
     /**
+     * //storage/emulated/0/flow/pictures
+     *
      * The file where saving the own public local data while visibility and understand for every app ;
      * */
     public static File getPublicDirectory(String fileName) throws IOException {
