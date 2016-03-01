@@ -50,4 +50,31 @@ public class FileUtil {
         context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
         return file;
     }
+
+
+    /** zip compress **/
+    public static File compress(File file)throws IOException{
+        FileInputStream fin = null;
+        FileOutputStream fout = null;
+        GZIPOutputStream gzout = null;
+        File newFile = new File(file.getAbsolutePath()+".gzip");
+        try {
+            fin = new FileInputStream(file);
+            fout = new FileOutputStream(newFile.getAbsoluteFile());
+            gzout = new GZIPOutputStream(fout);
+            byte[] buf = new byte[1024];
+            int num;
+            while ((num = fin.read(buf)) != -1) {
+                gzout.write(buf, 0, num);
+            }
+        } finally {
+            if (gzout != null)
+                gzout.close();
+            if (fout != null)
+                fout.close();
+            if (fin != null)
+                fin.close();
+        }
+        return newFile;
+    }
 }
