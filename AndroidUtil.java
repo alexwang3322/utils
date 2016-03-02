@@ -28,5 +28,10 @@ public class AndroidUtil {
     public static String getSimSerialNumber(Context context){
 	return ((TelephonyManager)context.getSystemService(Context.TElEPHONY_SERVICE)).getSimSerialNumber();
     }
-
+    /**	 @return  get mac address  **/
+    public static String getLocalMacAddress(Context context) {
+	WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+	WifiInfo info = wifi.getConnectionInfo();
+	return info.getMacAddress();
+    }
 }
