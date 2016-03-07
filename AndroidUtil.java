@@ -34,4 +34,5 @@ public class AndroidUtil {
 	WifiInfo info = wifi.getConnectionInfo();
 	return info.getMacAddress();
     }
+
 }
