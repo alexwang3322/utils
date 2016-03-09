@@ -1,6 +1,6 @@
 class StringUtils{
 
-    public static void write(String content, File traget){
+    private static void write(String content, File traget){
 	BufferedReader bufferedReader = null;
         BufferedWriter bufferedWriter = null;
         try {

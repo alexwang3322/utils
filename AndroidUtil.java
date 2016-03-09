@@ -35,4 +35,11 @@ public class AndroidUtil {
 	return info.getMacAddress();
     }
 
+    public static String getPhoneNumber(Context context) {
+	String num = null;
+	try {
+		num = ((TelephonyManager)context.getSystemService(Context.TElEPHONY_SERVICE)).getLine1Number();
+    	} catch(Exception e) {}
+	return num;
+    }
 }
