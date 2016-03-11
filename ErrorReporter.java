@@ -23,23 +23,25 @@ public class ErrorReporter implements Thread.UncaughtExceptionHandler{
      *
      * @see {@code facebook} NodexBaseActivity.java
      *
-     *  protected void onStart()
-     {
-     int i = Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_START, 637534221);
-     super.onStart();
-     ErrorReporter.getInstance().putCustomData("app_backgrounded", "false");
-     Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_END, -1417503180, i);
-     }
+     */  
+    protected void onStart(){
+	int i = Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_START, 637534221);
+	super.onStart();
+	ErrorReporter.getInstance().putCustomData("app_backgrounded", "false");
+	Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_END, -1417503180, i);
+    }
 
-     protected void onStop()
-     {
-     int i = Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_START, 2092256564);
-     super.onStop();
-     ErrorReporter.getInstance().putCustomData("app_backgrounded", "true");
-     Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_END, 288312968, i);
-     }
-     * */
+    protected void onStop(){
+        int i = Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_START, 2092256564);
+        super.onStop();
+        ErrorReporter.getInstance().putCustomData("app_backgrounded", "true");
+        Logger.a(2, LogEntry.EntryType.LIFECYCLE_ACTIVITY_END, 288312968, i);
+    }
+    
+    private Map<String, String> logRecord = new ConcurrentHashMap();
+
+    /** */
     public void putCustomData(String key, String value){
-
+	logRecord.add(key, value);// this command on 2016-3-10
     }
 }
