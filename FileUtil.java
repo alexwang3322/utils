@@ -16,7 +16,10 @@ public class FileUtil {
     private final static String FLOW_FILE_DIRECOTRY = "flow/";
 
     private final static String FLOW_PIC_FILE_DIRECOTRY = FLOW_FILE_DIRECOTRY + "pictures/";
-
+   /**	data/data/com.lenovo/files	*/ 
+    public static File getInternalFile(Context context){
+	return context.getFileDir();
+    }
     /**
      * //storage/emulated/0/Android/data/com.raventech.projectflow/files/[Pictures]
      *
