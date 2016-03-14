@@ -9,6 +9,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+
+/**
+@alex 
+	KeyboardUtils$$Lambda$1 implements Runnabl { ... } // what is going on?
+
+**/
 public final class KeyboardUtils {
 
     public static class SimpleTextWatcher implements TextWatcher {
