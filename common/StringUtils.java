@@ -24,10 +24,11 @@ class StringUtils{
             }
         }	
     }
-    public static void write(String content, File... tragets){
-	for(int i=0; i<tragets.length; i++){
-		write(content, tragets[i]);
-	}	
+
+    public static void write(String content, File... targets){
+	for(File file : targets) {
+	    write(content, file);
+	}
     }
 
     public static String read(InputStream src){
@@ -46,11 +47,7 @@ class StringUtils{
             } catch (IOException e) {
             }
         }
-        if(sb!=null && sb.length()>1){
-            return sb.toString();
-        }else{
-            return null;
-        }	
+	return sb.length() > 1 ? sb.toString() : "null";    
     }
 
     public static String read(File src){
