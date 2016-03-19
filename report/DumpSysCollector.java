@@ -8,7 +8,7 @@ import android.os.Debug;
 import java.util.Locale;
 
 /**
- * Created by alex on 16/3/11.
+ * origin implements by acra, and may updated by fb; 
  */
 public class DumpSysCollector {
 
@@ -16,16 +16,19 @@ public class DumpSysCollector {
      * 参数说明可见: {@link http://blog.csdn.net/tonyfield2015/article/details/8438723}
      *              {@link http://blog.csdn.net/vshuang/article/details/39647167}
      *              {@link http://blog.163.com/rettar@126/blog/static/12165034220121029025914/}
-
+	*** debug paramters ***
              percent dalvik+native / native / d+n+other / other
              2 / 2 / 11 / 9
+	*** not debug paramters ***
              avail/thresh/low
              1577828352/100663296/false/(6%) memclass=192
+	*** debug paramters ***
              DebugMemInfo(kB):
              Private / Proportional / Shared
              dalvik:    1196 /    2195 /   22724
              native:    3992 /    4013 /    1124
              other:   18240 /   20822 /    8412
+	*** debug paramters ***
              GC:
              9 GCs, 1382816 freed, 22455 free count
              Native Heap:
@@ -34,6 +37,7 @@ public class DumpSysCollector {
              Threads:
              alloc count/alloc size/ext ac/ext as
              23402 / 1248190 /       0 /       0
+	*** Runtime paramters ***
              Java Heap:
              size/allocated/free
              201326592 / 23609608 / 8204000

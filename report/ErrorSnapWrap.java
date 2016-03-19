@@ -6,11 +6,10 @@ public class ErrorSnapWrapper {
 
    public static void notify(Throwable throwable) {
 	// 发送一个exception到服务器.	
+   	ErrorSnapImpl.getInstance().notify(throwable.toString());
    }
 
-
    class Error {
-
 	Throwable mThrowable;
 	public Error(Throwable t) {
 		mThrowable = t;
