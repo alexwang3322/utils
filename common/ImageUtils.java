@@ -2,7 +2,7 @@
 
 class ImageUtils {
 
-    public final static int UPLOAD_COMPRESS_QUALITY = 80; // airbnb is 80% too.
+    public final static int UPLOAD_COMPRESS_QUALITY = 80; // airbxb is 80% too.
 
     public static Bitmap rotateIfNeeded(Bitmap bitmap, int degree) {
 	if (!(degrees == 0 || bitmap == null)) {
