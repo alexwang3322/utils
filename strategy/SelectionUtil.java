@@ -34,7 +34,9 @@ public class SelectionUtil extends SelectionBase {
 		put(queueToString(mQueue));
 		return currWritableFileName;
 	}
-	
+	/**
+	@throw java.util.NoSuchElementException
+	**/
 	public boolean deleteSendFile(){	//上传完成当前文件
 		mQueue.pop();
 		return put(queueToString(mQueue));
