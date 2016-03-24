@@ -16,7 +16,19 @@ public class FileUtil {
     private final static String FLOW_FILE_DIRECOTRY = "flow/";
 
     private final static String FLOW_PIC_FILE_DIRECOTRY = FLOW_FILE_DIRECOTRY + "pictures/";
-   /**	data/data/com.lenovo/files	*/ 
+   
+     /**
+     * 未检测
+     * /data/data/app-package-name/
+     * **/
+    public String getFile(Context context,String fileName) {
+        return context.getDir(fileName, Context.MODE_PRIVATE).getAbsolutePath();
+    }
+
+    /**	
+     ＊未检测
+     ＊data/data/com.lenovo/files
+     */ 
     public static File getInternalFile(Context context){
 	return context.getFileDir();
     }
@@ -54,30 +66,4 @@ public class FileUtil {
         return file;
     }
 
-
-    /** zip compress **/
-    public static File compress(File file)throws IOException{
-        FileInputStream fin = null;
-        FileOutputStream fout = null;
-        GZIPOutputStream gzout = null;
-        File newFile = new File(file.getAbsolutePath()+".gzip");
-        try {
-            fin = new FileInputStream(file);
-            fout = new FileOutputStream(newFile.getAbsoluteFile());
-            gzout = new GZIPOutputStream(fout);
-            byte[] buf = new byte[1024];
-            int num;
-            while ((num = fin.read(buf)) != -1) {
-                gzout.write(buf, 0, num);
-            }
-        } finally {
-            if (gzout != null)
-                gzout.close();
-            if (fout != null)
-                fout.close();
-            if (fin != null)
-                fin.close();
-        }
-        return newFile;
-    }
 }

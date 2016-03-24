@@ -8,13 +8,33 @@
 public class CompressUtil {
 
    
-    public String compress(String content) {
-	return null;
-    }
+    /** 
+	dst = new File(path.. + ".gzip");
+        compress(src, dst);
+    **/
+    public static void compress(File src, File dst)throws IOException{
+        if(src == null || dst == null)	throw NullPointerException();
 
-    /**	@see FileUtils$compress */
-    public File compress(File target) {
-   	return null;
+ 	FileInputStream fin = null;
+        FileOutputStream fout = null;
+        GZIPOutputStream gzout = null;
+        try {
+            fin = new FileInputStream(src);
+            fout = new FileOutputStream(dst.getAbsoluteFile());
+            gzout = new GZIPOutputStream(fout);
+            byte[] buf = new byte[1024];
+            int num;
+            while ((num = fin.read(buf)) != -1) {
+                gzout.write(buf, 0, num);
+            }
+        } finally {
+            if (gzout != null)
+                gzout.close();
+            if (fout != null)
+                fout.close();
+            if (fin != null)
+                fin.close();
+        }
     }
 	
     /**  not work right for now. **/
@@ -36,7 +56,4 @@ public class CompressUtil {
         return ret;
     } 
 
-    public File unCompress(File target) {
-   	return null;
-    }
 }
