@@ -16,6 +16,7 @@ public class DumpSysCollector {
      * 参数说明可见: {@link http://blog.csdn.net/tonyfield2015/article/details/8438723}
      *              {@link http://blog.csdn.net/vshuang/article/details/39647167}
      *              {@link http://blog.163.com/rettar@126/blog/static/12165034220121029025914/}
+			http://www.cnblogs.com/Amandaliu/archive/2012/11/21/2781434.html 这篇文章比较推荐
 	*** debug paramters ***
              percent dalvik+native / native / d+n+other / other
              2 / 2 / 11 / 9

@@ -32,4 +32,11 @@ public class Check {
             throw new IllegalStateException();
         }
     }
+
+    public static boolean isUserAMonkey() {
+	 return ActivityManager.isUserAMonkey();
+    }
+    public static boolean checkPermission(String permission) {
+	return true;
+    }
 }
