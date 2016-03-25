@@ -36,6 +36,7 @@ public class Check {
     public static boolean isUserAMonkey() {
 	 return ActivityManager.isUserAMonkey();
     }
+
     public static boolean checkPermission(String permission) {
 	return true;
     }
