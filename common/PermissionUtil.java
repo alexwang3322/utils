@@ -31,7 +31,7 @@ public class PermissionUtil {
         for (String permission : permissions) {
             if (PermissionChecker.checkSelfPermission(context, permission) != 0) {
                 return false;
-            }
+            } // PermissionChecker 's contain is moved to here already.
         }
         return true;
     }

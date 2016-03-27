@@ -36,7 +36,10 @@ public class CompressUtil {
                 fin.close();
         }
     }
-	
+
+    public static void unCompress(File src, File dst) {}	
+   
+   
     /**  not work right for now. **/
     public String unCompress(String content) {
     	String ret = "";

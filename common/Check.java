@@ -38,6 +38,6 @@ public class Check {
     }
 
     public static boolean checkPermission(String permission) {
-	return true;
+	return PermissionUtil.checkPermission(permission);
     }
 }
