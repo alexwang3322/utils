@@ -2,3 +2,6 @@
 
 需要完善的类
 	CompressUtil.java
+
+没有测试的类
+	AnimationUtils.java
