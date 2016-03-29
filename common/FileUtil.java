@@ -21,17 +21,15 @@ public class FileUtil {
      * 未检测
      * /data/data/app-package-name/
      * **/
-    public String getFile(Context context,String fileName) {
+    public static String getFile(Context context,String fileName) {
         return context.getDir(fileName, Context.MODE_PRIVATE).getAbsolutePath();
     }
 
-    /**	
-     ＊未检测
-     ＊data/data/com.lenovo/files
-     */ 
-    public static File getInternalFile(Context context){
+    /**	/data/data/app-package-name/files/ **/
+    public static File getFileDir(Context context) {
 	return context.getFileDir();
     }
+
     /**
      * //storage/emulated/0/Android/data/com.raventech.projectflow/files/[Pictures]
      *
