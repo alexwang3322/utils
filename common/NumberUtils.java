@@ -5,6 +5,10 @@ public final class NumberUtils {
     private NumberUtils() {
     }
 
+    public static boolean isInt(String s) {
+	return false;
+    }
+
     public static long tryParseLong(String s, long invalidLong) {
         try {
             invalidLong = Long.parseLong(s);
