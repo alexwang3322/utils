@@ -14,8 +14,7 @@ import org.robolectric.annotation.Config;
 /**
  * Created by alex on 16/2/20.
  *
- * Notice:
- *      junit同用了一个成员变量，故测试时每个用例单独跑
+ * 还需要增加更多测试.
  */
 
 @RunWith(RobolectricGradleTestRunner.class)
