@@ -12,11 +12,60 @@ import java.io.IOException;
  * Created by alex on 15/12/11.
  */
 public class FileUtil {
+    
+    private final static String EXTERNAL_FILE_ROOT_DIR = "myapp";
+    private final static String EXTERNAL_FILE_APP_DIR = "app";
+    private final static String EXTERNAL_FILE_DIAGNOSIS_DIR = "diagnosis";
+    private final static String EXTERNAL_FILE_IMAGE_DIR = "image";
+    private final static String EXTERNAL_FILE_CACHE_DIR = "cache";
+
 
     private final static String FLOW_FILE_DIRECOTRY = "flow/";
-
     private final static String FLOW_PIC_FILE_DIRECOTRY = FLOW_FILE_DIRECOTRY + "pictures/";
-   
+
+
+     @Nullable
+    private static File mkdirDir(@NonNull File dir, @Nullable String fileName) {
+        if(!dir.exists() && !dir.mkdir()) {
+            return null;
+        }
+        if(fileName != null) {
+            return new File(dir, fileName);
+        }
+        return dir;
+    }
+
+    @Nullable
+    public static File getExternalAppFileApp(@Nullable String fileName) {
+        File file = getExternalAppFileRoot();
+        if(file != null) {
+            File dir = new File(file.getAbsolutePath() + File.separator + EXTERNAL_FILE_APP_DIR);
+            return mkdirDir(dir, fileName);
+        }
+        return null;
+    }
+
+    @Nullable
+    public static File getExternalAppFileRoot() {
+        File fileStr = getExternalAppFileRootPath();
+        if(fileStr != null) {
+            return mkdirDir(fileStr, null);
+        }
+        return null;
+    }
+
+    /** @return "/storage/emulated/0/app"  **/
+    @Nullable
+    private static File getExternalAppFileRootPath() {
+        if(isSupportSDCard()) {
+            return new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + EXTERNAL_FILE_ROOT_DIR);
+        }
+        return null;
+    }
+
+    public static boolean isSupportSDCard() {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    } 
      /**
      * 未检测
      * /data/data/app-package-name/
