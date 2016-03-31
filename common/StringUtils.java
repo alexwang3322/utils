@@ -1,6 +1,7 @@
 class StringUtils{
 
-    private static void write(String content, File traget){
+    private static boolean write(String content,@Nullable File traget){
+	if(target == null)    return false;
 	BufferedReader bufferedReader = null;
         BufferedWriter bufferedWriter = null;
         try {
@@ -25,8 +26,9 @@ class StringUtils{
         }	
     }
 
-    public static void write(String content, File... targets){
-	for(File file : targets) {
+    public static boolean write(String content,@Nullable File... targets){
+	if(targets == null)	return false;	
+        for(File file : targets) {
 	    write(content, file);
 	}
     }
@@ -50,7 +52,9 @@ class StringUtils{
 	return sb.length() > 1 ? sb.toString() : "null";    
     }
 
-    public static String read(File src){
+    @Nullable
+    public static String read(@Nullable File src){
+	if(src == null || !src.exsit())		return null;
 	FileInputStream is = new FileInputStream(src);
         return read(is);	
     }

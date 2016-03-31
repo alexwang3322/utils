@@ -12,8 +12,8 @@ public class CompressUtil {
 	dst = new File(path.. + ".gzip");
         compress(src, dst);
     **/
-    public static void compress(File src, File dst)throws IOException{
-        if(src == null || dst == null)	throw NullPointerException();
+    public static boolean compress(@Nullable File src,@Nullable File dst)throws IOException{
+        if(src == null || dst == null)	return false;
 
  	FileInputStream fin = null;
         FileOutputStream fout = null;
