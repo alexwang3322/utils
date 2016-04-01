@@ -7,7 +7,13 @@
 **/
 public class CompressUtil {
 
-   
+    /**	简单版	2016-4-1 */
+    public static boolean compress(@NonNull File dst, @NonNull String content) throws IOException {
+	GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(dst));
+	OutputStreamWriter writer = new OutputStreamWriter(gos);
+	writer.write(content);
+	writer.close(); 
+    }   
     /** 
 	dst = new File(path.. + ".gzip");
         compress(src, dst);
