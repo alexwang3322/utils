@@ -1,27 +1,39 @@
+package com.bugsnag.android;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 /**
- 
+
   all the compress is gzip type for now . may be we can add other type later.
- 
+
 **/
 public class CompressUtil {
 
     /**	简单版	2016-4-1 */
-    public static boolean compress(@NonNull File dst, @NonNull String content) throws IOException {
-	GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(dst));
-	OutputStreamWriter writer = new OutputStreamWriter(gos);
-	writer.write(content);
-	writer.close(); 
-    }   
-    /** 
+    private static void compress(@NonNull File dst, @NonNull String content) throws IOException {
+        GZIPOutputStream gos = new GZIPOutputStream(new FileOutputStream(dst));
+        OutputStreamWriter writer = new OutputStreamWriter(gos);
+        writer.write(content);
+        writer.close();
+    }
+    /**
 	dst = new File(path.. + ".gzip");
         compress(src, dst);
     **/
-    public static boolean compress(@Nullable File src,@Nullable File dst)throws IOException{
-        if(src == null || dst == null)	return false;
-
- 	FileInputStream fin = null;
+    public static void compress(@Nullable File src,@Nullable File dst)throws IOException {
+        if(src == null || dst == null)	return ;
+ 	    FileInputStream fin = null;
         FileOutputStream fout = null;
         GZIPOutputStream gzout = null;
         try {
@@ -43,26 +55,15 @@ public class CompressUtil {
         }
     }
 
-    public static void unCompress(File src, File dst) {}	
-   
-   
     /**  not work right for now. **/
-    public String unCompress(String content) {
-    	String ret = "";
-        try {
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
-            GZIPInputStream gunzip = new GZIPInputStream(bis);
-            byte[] buffer = new byte[256];
-            int n;
-            while ((n = gunzip.read(buffer))>= 0) {
-                out.write(buffer, 0, n);
-            }
-            ret = out.toString();
-        } catch (IOException e) {
-            return null;
+    public String unCompress(File src) throws IOException{
+    	StringBuffer ret = new StringBuffer();
+        GZIPInputStream gzip = new GZIPInputStream(new FileInputStream(src));
+        byte[] buffer = new byte[1024];
+        while (gzip.read(buffer) != -1) {
+            ret.append(new String(buffer));
         }
-        return ret;
-    } 
+        return ret.toString();
+    }
 
 }
