@@ -1,3 +1,4 @@
+package utils.common;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +27,7 @@ public final class KeyboardUtils {
         public void afterTextChanged(Editable s) {
         }
     }
-
+    //TODO: 没有ActivityUtils工具，需要加上
     public static boolean isKeyboardUp(AppCompatActivity activity, View rootView) {
         return (rootView.getRootView().getHeight() - ActivityUtils.getStatusBarActionBarHeight(activity)) - ActivityUtils.getNavBarHeight(activity) > rootView.getHeight();
     }

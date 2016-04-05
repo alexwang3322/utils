@@ -1,5 +1,13 @@
+package utils.common;
 
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.*;
+import android.os.Process;
+import android.support.v4.app.AppOpsManagerCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.PermissionChecker;
 
 /**
 	combine with PermissionUtil and PermissionChecker
@@ -46,8 +54,8 @@ public class PermissionUtil {
     }
 
     public static int checkPermission(Context context, String permission, int pid, int uid, String packageName) {
-        if (context.checkPermission(permission, pid, uid) == -1) {
-            return -1;
+        if (context.checkPermission(permission, pid, uid) == PackageManager.PERMISSION_DENIED) {
+            return PackageManager.PERMISSION_DENIED;
         }
         String op = AppOpsManagerCompat.permissionToOp(permission);
         if (op == null) {
@@ -64,7 +72,7 @@ public class PermissionUtil {
     }
 
     public static int checkSelfPermission(Context context, String permission) {
-        return checkPermission(context, permission, Process.myPid(), Process.myUid(), context.getPackageName());
+        return checkPermission(context, permission, android.os.Process.myPid(), Process.myUid(), context.getPackageName());
     }
 
 }

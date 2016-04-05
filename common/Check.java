@@ -1,8 +1,9 @@
+package utils.common;
 
 
+import android.app.ActivityManager;
 
-
-/**	
+/**
 	see {@link https://github.com/google/guava}
 	整理了几个比较实用的方法，以后可以将整个库整理进来，要么就是增加新的方法自己整合；
 **/
@@ -34,10 +35,11 @@ public class Check {
     }
 
     public static boolean isUserAMonkey() {
-	 return ActivityManager.isUserAMonkey();
+        return ActivityManager.isUserAMonkey();
     }
 
+    // TODO: 没有此checkPermission方法，日后需要加上
     public static boolean checkPermission(String permission) {
-	return PermissionUtil.checkPermission(permission);
+	    return PermissionUtil.checkPermission(permission);
     }
 }

@@ -1,4 +1,4 @@
-package com.bugsnag.android;
+package utils.common;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,7 +16,7 @@ import java.util.zip.GZIPOutputStream;
 /**
 
   all the compress is gzip type for now . may be we can add other type later.
-
+TODO: 还没有整理此方法
 **/
 public class CompressUtil {
 

@@ -1,8 +1,23 @@
+package utils.common;
+
+import android.support.annotation.Nullable;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+
 class StringUtils{
 
-    private static boolean write(String content,@Nullable File traget){
-	if(target == null)    return false;
-	BufferedReader bufferedReader = null;
+    private static boolean write(String content,@Nullable File target) throws IOException {
+        if(target == null)    return false;
+        BufferedReader bufferedReader = null;
         BufferedWriter bufferedWriter = null;
         try {
             bufferedReader = new BufferedReader(new StringReader(content));
@@ -23,18 +38,19 @@ class StringUtils{
                     e.printStackTrace();
                 }
             }
-        }	
+        }
     }
 
-    public static boolean write(String content,@Nullable File... targets){
-	if(targets == null)	return false;	
+    public static void write(String content,@Nullable File... targets) throws IOException {
+	    if(targets == null)	return ;
         for(File file : targets) {
-	    write(content, file);
-	}
+	        write(content, file);
+	    }
     }
 
+    @Nullable
     public static String read(InputStream src){
-	BufferedReader reader = new BufferedReader(new InputStreamReader(src));
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(src));
         StringBuilder sb = new StringBuilder();
         String line = null;
         try {
@@ -49,14 +65,14 @@ class StringUtils{
             } catch (IOException e) {
             }
         }
-	return sb.length() > 1 ? sb.toString() : "null";    
+	    return sb.length() > 1 ? sb.toString() : null;
     }
 
     @Nullable
-    public static String read(@Nullable File src){
-	if(src == null || !src.exsit())		return null;
-	FileInputStream is = new FileInputStream(src);
-        return read(is);	
+    public static String read(@Nullable File src) throws FileNotFoundException {
+        if(src == null || !src.exists())		return null;
+        FileInputStream is = new FileInputStream(src);
+        return read(is);
     }
 
 }
