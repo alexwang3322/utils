@@ -24,7 +24,19 @@ public class AnimationUtils {
     }
 
     public static void fadeOut(View fadeOut, int duration) {
+	fadeOut.setAlpha(1.0f); // full alpha , visiable .
+        ObjectAnimator animator = ObjectAnimator.ofFloat(fadeOut, View.ALPHA, new float[]{1.0f, 0.0f}).setDuration((long) duration);
+        animator.addListener(new SimpleAnimatorListener() {
+            public void onAnimationEnd(Animator animation) {
+                fadeOut.setVisibility(View.GONE);
+            }
+        });
+        animator.start();
+    }
+
+    public static void fadeInOut(View fadeIn, View fadeOut, int duration, final boolean setOutViewToGone) {
 
     }
+
 
 }
