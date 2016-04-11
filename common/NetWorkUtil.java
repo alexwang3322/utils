@@ -11,6 +11,12 @@ import android.telephony.TelephonyManager;
 public class NetWorkUtil {
 
     private static boolean reverseProxyOn = false;
+    
+    /** must run in worker thread **/
+    public static boolean ping() {
+	// http://bbs.csdn.net/topics/390235675 
+        // 进行正式测试，并记录此方法是否可用	
+    }
 
     public static String getIpAddress(){
         return null;

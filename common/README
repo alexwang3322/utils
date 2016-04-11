@@ -1,8 +1,11 @@
 纪录那个类的方法是亟需完善的，哪个类的方法是空着的；
 
-需要完善的类
+需要完善或不理解的类
 	CompressUtil.java
+	NetWorkStatusWatcher.java
 
 没有测试的类
 	AnimationUtils.java
 	EmailHelper.java
+	NetWorkUtils.java#ping	
+
