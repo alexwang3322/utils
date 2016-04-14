@@ -19,23 +19,21 @@ Log.d()/v()：建议打印开发日志
  ****************************************************/
 public class Logger {
 
-    private static final ThreadLocal<LogEntry> f = new Logger.Build();
+    static final DEBUG = BuildConfig.DEBUG;
+    static final RELEASE = !BuildConfig.DEBUG;
 
-    final static class Build extends ThreadLocal<LogEntry> {
-        @Override
-        protected LogEntry initialValue() {
-            return new LogEntry();
+    public static void e(String tag, String info){
+        if(DEBUG) {
+	    android.util.Log.e(tag, info);
         }
-    }
-    public static void e(){
-        // ...
+    	Spider / BugsnagWrapper.leaveBreadcrumb("(e) " + tag + ": " + info);
     }
 
     public static void v(){
-
+	if(DEBUG || RELEASE) {
+             android.util.Log.v(tag, info);
+ 	}   
+        Spider / BugsnagWrapper.leaveBreadcrumb("(v) " + tag + ": " + info);
     }
 
-    public static LogEntry Build(){
-	// 配置 初始化 LogEntry
-    }
 }

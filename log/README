@@ -1,7 +1,6 @@
 
 
 需要完善或不理解的类
-	LogEntry.java // in faceb**k 为什么要用ThreadLocal，为什么要得到其它线程呢?
 
 没有测试的类
 
