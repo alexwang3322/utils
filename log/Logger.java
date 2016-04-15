@@ -20,7 +20,6 @@ Log.d()/v()：建议打印开发日志
 public class Logger {
 
     static final DEBUG = BuildConfig.DEBUG;
-    static final RELEASE = !BuildConfig.DEBUG;
 
     public static void e(String tag, String info){
         if(DEBUG) {
@@ -30,9 +29,9 @@ public class Logger {
     }
 
     public static void v(){
-	if(DEBUG || RELEASE) {
-             android.util.Log.v(tag, info);
- 	}   
+        if(DEBUG) {
+	    android.util.Log.v(tag, info);
+        }
         Spider / BugsnagWrapper.leaveBreadcrumb("(v) " + tag + ": " + info);
     }
 
