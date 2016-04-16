@@ -20,7 +20,7 @@ Log.d()/v()：建议打印开发日志
 public class Logger {
 
     static final DEBUG = BuildConfig.DEBUG;
-
+    // 有时候需要将出错的信息插入到数据库或一个自定义的日志文件中 @see Log#getStackTraceString
     public static void e(String tag, String info){
         if(DEBUG) {
 	    android.util.Log.e(tag, info);
@@ -28,11 +28,20 @@ public class Logger {
     	Spider / BugsnagWrapper.leaveBreadcrumb("(e) " + tag + ": " + info);
     }
 
-    public static void v(){
+    public static void v(String tag, String info){
         if(DEBUG) {
 	    android.util.Log.v(tag, info);
         }
         Spider / BugsnagWrapper.leaveBreadcrumb("(v) " + tag + ": " + info);
+    } 
+
+    /**	report them in your debug console */    
+    /**	What a Terrible Failure = wtf**/
+    public static void wtf(String tag, String info) {
+	if(DEBUG) {
+	    android.util.Log.wtf(tag, info);
+	}
     }
+
 
 }
