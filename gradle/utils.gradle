@@ -1,0 +1,22 @@
+
+
+// set utils.gradle in http://wiki.jikexueyuan.com/project/deep-android-gradle/four-four.html
+
+// reference this using apply from: rootProject.getRootDir().getAbsolutePath() + "/utils.gradle"
+
+class SelfDefineTask extends DefaultTask {
+     
+    @Optional
+    String message = 'this is a self-define task.'
+
+    @TaskAction
+    def hello(){
+        println "hello world $message"
+    }
+}
+
+task HelloWorld(type:SelfDefineTask) {
+    message = "test\n";
+}
+
+
