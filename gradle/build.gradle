@@ -14,6 +14,12 @@ apply from: rootProject.file('utils.gradle')
 apply plugin: 'com.android.application'
 
 android {
+
+    repositories {
+	flatDir { // flat ".aar"
+            dirs 'libs'
+        }
+    }
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
     defaultConfig {
@@ -89,5 +95,5 @@ dependencies {
     androidTestCompile 'com.android.support.test:rules:0.4.1'
 
     compile project(':NineOldAndroid')
-
+    compile(name: 'mylibrary-release', ext: 'aar')
 }
