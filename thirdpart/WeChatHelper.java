@@ -35,6 +35,29 @@ public class WeChatHelper {
         req.transaction = WECHAT_SHARE;
         wechatAPI.sendReq(req);
     }
+    
+    public void OnClickWeixinShareVideo(View v) {
+	// initilizate IWXAPI , checkoutWeixinInstall
+        if (!checkWeixinInstall()) {
+		app.MyToast(mContext, "?????");
+		return;
+	}
+	String url = "weixin.joyplus.tv/info.php?prod_id=" + prod_id;// ????????????????????
+	WXWebpageObject localWXWebpageObject = new WXWebpageObject();
+	localWXWebpageObject.webpageUrl = url;
+	WXMediaMessage localWXMediaMessage = new WXMediaMessage(
+			localWXWebpageObject);
+	localWXMediaMessage.title = "?????";// ???????????????????????????????
+	localWXMediaMessage.description = "???#???#Android???<" + prod_name
+			+ ">???????????????????????http://ums.bz/REGLDb/??????????";
+	localWXMediaMessage.thumbData = Util.bmpToByteArray(bitmap, true);
+	SendMessageToWX.Req localReq = new SendMessageToWX.Req();
+	localReq.transaction = String.valueOf(System.currentTimeMillis());
+	localReq.message = localWXMediaMessage;
+	localReq.scene = SendMessageToWX.Req.WXSceneSession;
+	wechatAPI.sendReq(localReq);
+     }
+
 }
 
 
