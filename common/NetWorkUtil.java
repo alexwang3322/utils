@@ -12,6 +12,10 @@ public class NetWorkUtil {
 
     private static boolean reverseProxyOn = false;
     
+    public static boolean isAvaliable(Context context) {
+	ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+	return cm.getActiveNetworkInfo().isConnectedOrConnecting();
+    }
     /** must run in worker thread **/
     public static boolean ping() {
 	// http://bbs.csdn.net/topics/390235675 
