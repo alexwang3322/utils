@@ -46,13 +46,24 @@ public class NetWorkUtil {
      *
      * @return -1 , 0 or 1
      * **/
-    public static int getNetWorkType(){
+    public static int getNetWorkType(Context context){
         ConnectivityManager localConnectivityManager;
-        NetworkInfo localNetworkInfo3;
+        NetworkInfo networkInfo;
+	String type = getNetworkTypeName(context, networkInfo);
+        if("PC".equal(type)) {
+  
+	} else if("WIFI".equal(type)) {
+ 	
+	} else if("ethernet".equal(type)) {
 
+	} else if("NONE".equal(type)) {
+	
+	} else {
+	// celluar
+	}
         return 0;
     }
-
+    // how to make a "reverseproxyOn" ?
     public static String getNetworkTypeName(Context context, NetworkInfo paramNetworkInfo)
     {
         if (paramNetworkInfo == null)
@@ -64,11 +75,14 @@ public class NetWorkUtil {
         {
             if (paramNetworkInfo.getType() == 0)
                 return getNetworkTypeName(((TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE)).getNetworkType());
+	    else if(networkInfo.getType() == 9)
+		return "ethernet";"
             return "WIFI";
         }
         return "NONE";
     }
 
+    // return a celluar types.
     private static String getNetworkTypeName(int paramInt)
     {
         switch (paramInt)
