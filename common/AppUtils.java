@@ -3,7 +3,7 @@
 
 public class AppUtils {
 
-     public String getVersion(){}
-     public String getChannel(){}
-
+    public static String getVersion(){}
+    public static String getChannel(){}
+   
 }

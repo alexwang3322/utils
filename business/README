@@ -1,0 +1,6 @@
+
+
+和业务相关的工具类都应该和普通工具类分开
+
+the utilities relatived businesses should be sperated with common utilities in different folder.
+
