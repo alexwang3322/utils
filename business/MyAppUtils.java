@@ -2,6 +2,7 @@
 
 
 public class MyAppUtils extends AppUtils{
+    private static boolean isAnonymous = true;
 
     /**
      * 对登录数据进行操作
@@ -17,7 +18,9 @@ public class MyAppUtils extends AppUtils{
     }
 
     public static void onLaunched(Context context) {
-
+	if(isAnonymous) {
+	} else {
+	}
     }
  
 }
