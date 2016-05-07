@@ -2,9 +2,6 @@
 public final class NumberUtils {
     private static final String TAG = "NumberUtils";
 
-    private NumberUtils() {
-    }
-
     public static boolean isInt(String s) {
 	return false;
     }
