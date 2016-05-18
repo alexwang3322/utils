@@ -11,5 +11,5 @@
 
 需要增加的功能
 	BadgetUtil.java
-
+        IOUtils.java # closeQuietly(is/os)
 

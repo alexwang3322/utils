@@ -53,6 +53,10 @@ public class PermissionUtil {
         return false;
     }
 
+    /**
+        此方法估计是拷贝自 v4.PermissionChecker.checkPermission的内部实现
+
+    **/
     public static int checkPermission(Context context, String permission, int pid, int uid, String packageName) {
         if (context.checkPermission(permission, pid, uid) == PackageManager.PERMISSION_DENIED) {
             return PackageManager.PERMISSION_DENIED;
