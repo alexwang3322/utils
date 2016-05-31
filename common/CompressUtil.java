@@ -14,6 +14,8 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 /**
+//// there has some thing wrong about the files.
+
 
   all the compress is gzip type for now . may be we can add other type later.
 TODO: 还没有整理此方法
