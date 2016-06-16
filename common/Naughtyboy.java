@@ -3,15 +3,14 @@
 
 public class Naughtyboy {
 	
-    // see active process 
     /**
-	com.tencent.mobileqq:MSF
+	   com.tencent.mobileqq:MSF
         com.huawei.android.launcher
         com.speedsoftware.rootexplorer
         com.tencent.mobileqq
     **/
     public static String getRunningBoys(Context context) {
-	ActivityManager manager = (ActivityManager) c.getSystemService(Context.ACTIVITY_SERVICE);
+	   ActivityManager manager = (ActivityManager) c.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> list = manager.getRunningAppProcesses();
         StringBuffer stringBuffer = new StringBuffer();
         for (ActivityManager.RunningAppProcessInfo info : list) {
@@ -21,6 +20,11 @@ public class Naughtyboy {
     }
 
 
+    /**
+
+        listviewitemanimations:ListViewItemAnimations:1.0
+
+    **/
     public static String getPersistBoys(Context context) {
         PackageManager pm = context.getPackageManager();
         List<PackageInfo> pakageinfos = pm.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
