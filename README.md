@@ -21,3 +21,8 @@ asList.contains(ReportField.RUNTIME_PERMISSIONS)) {
       errorReporter.put(ReportField.RUNTIME_PERMISSIONS,
       PermissionsReporter.getAppGrantedPermissions(context), crashReportData, writer);
 }
+
+
+2.对打包进行配置，增加:
+  BuildConfig.VERSION_CODE
+  BuildConfig.****
